@@ -5,7 +5,16 @@
      <title>My Todos</title>
 
      <style>
-     
+        body {
+            text-align: center;
+        }
+        li {
+            text-align: center;
+        }
+        ul{
+            text-align: center;
+            display: inline-block;
+        }
      </style>
      </head>
 
@@ -15,10 +24,16 @@
 
           <ul>
           {%for x in my_todos%}
-          <li>{{x}}</li>
+          <li>
+          {{x}}
+          <form method="POST" action="/delete_todolist/{{loop.index0}}">
+          <input type="submit" value=" Delete">
+          </form>
+          
+          </li>
           {%endfor%}
           </ul>
-        <form>
+        <form method="post">
         <input name="new_todo">
         <input type="submit">
         </form method="post">
